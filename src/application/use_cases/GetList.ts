@@ -1,5 +1,11 @@
 import { List }  from '../../domain/ListRepository';
 
-export default (ListRepository: List) => {
-    return ListRepository.getList();
-}
+export default class {
+    getChapters(ListRepository: List) {
+        return ListRepository.getChapters();
+    }
+
+    getChapter(id:number|string, ListRepository: List){
+        return ListRepository.getChapter(id);
+    }
+} 

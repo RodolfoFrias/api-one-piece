@@ -4,15 +4,29 @@ import { Request, Response } from 'express';
 
 class ListController {
 
-    async getList(req: Request, res: Response): Promise<void> {
+    async getChapters(req: Request, res: Response): Promise<void> {
         try {
-            const list = await GetList(ListRepository);
+            const getList = new GetList();
+            const list = await getList.getChapters(ListRepository);
             res.status(200).json(list);
         } catch (error) {
             console.log(error);
             res.status(500).json(error);
         }
     }
+
+    async getChapter(req: Request, res: Response): Promise<void> {
+        try {
+            const getList = new GetList();
+            const { id } = req.params;
+            const chapter = await getList.getChapter(id, ListRepository);
+            res.status(200).json(chapter);
+        } catch (error) {
+            console.log(error);
+            res.status(500).json(error);
+        }
+    }
+
 }
 
 export default new ListController();

@@ -1,3 +1,4 @@
 export interface List {
-    getList: Function
+    getChapters: Function,
+    getChapter: Function
 }

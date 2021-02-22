@@ -9,7 +9,8 @@ class ListRoutes {
     }
 
     private routes(){
-        this.router.get('/list', listController.getList);
+        this.router.get('/chapters', listController.getChapters);
+        this.router.get('/chapter/:id', listController.getChapter)
     }
 
 }
